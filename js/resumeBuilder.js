@@ -134,7 +134,22 @@ This is empty on purpose! Your code to build the resume will go here.
 // 2, the first jquery should be #workExperience. I used #header, which is wrong
 // 3, I lost one :lost, which coused some interesting format. 
 // 4, Weird: every time I added the last line, Description, the 2nd job disappear. Debug a long time. I finally found I wrote "HTMLWorDescription", insdead of "HTMLWorkDescription"....
-work.jobs.forEach(function(job){
+// work.jobs.forEach(function(job){
+// 	$("#workExperience").append(HTMLworkStart);
+// 	var formatedworkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+// 	var	formatedworkTitle = HTMLworkTitle.replace("%data%", job.title);
+// 	var	formatedworkDates = HTMLworkDates.replace("%data%", job.date);
+// 	var	formatedworkLocation = HTMLworkLocation.replace("%data%", job.location);
+// 	var	formatedworkDescription = HTMLworkDescription.replace("%data%", job.description);
+// 	$(".work-entry:last").append(formatedworkEmployer);
+// 	$(".work-entry:last").append(formatedworkTitle);
+// 	$(".work-entry:last").append(formatedworkDates);
+// 	$(".work-entry:last").append(formatedworkLocation);
+// 	$(".work-entry:last").append(formatedworkDescription);
+// })
+
+function displayWork(){
+	work.jobs.forEach(function(job){
 	$("#workExperience").append(HTMLworkStart);
 	var formatedworkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
 	var	formatedworkTitle = HTMLworkTitle.replace("%data%", job.title);
@@ -146,4 +161,8 @@ work.jobs.forEach(function(job){
 	$(".work-entry:last").append(formatedworkDates);
 	$(".work-entry:last").append(formatedworkLocation);
 	$(".work-entry:last").append(formatedworkDescription);
-})
+	})
+}
+
+displayWork();
+

@@ -39,22 +39,24 @@ This is empty on purpose! Your code to build the resume will go here.
  var work = {
  	"jobs": [
  	{
- 		"position": "Instructional Designer",
+ 		"title": "Instructional Designer",
  		"employer": "The SearchLite",
  		"location": "Ann Arbor",
- 		"date": "2014.11 - Present"
+ 		"date": 2016,
+ 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis."
  	},
  	{
- 		"position": "Operative Manager",
+ 		"title": "Operative Manager",
  		"employer": "Guokr",
  		"location": "Beijing",
- 		"date": "2010 - 2014"
+ 		"date": 2014,
+ 		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis."
  	}
  	]
  };
 
  var education = {
- 		"Schools":[
+ 		"schools":[
  			{
  			"name": "the University of Michigan",
  			"location": "Ann Arbor",
@@ -103,13 +105,45 @@ This is empty on purpose! Your code to build the resume will go here.
  	]
  };
 
- if (bio.skills.length > 0 ){
- 	formattedHTMLskills = HTMLskills.replace("%data%", bio.skills.join(", "));
+// This is MJ's first version
+ // if (bio.skills.length > 0 ){
+ // 	$("#header").append(HTMLskillsStart);
+ // 	var formattedHTMLskills = HTMLskills.replace("%data%", bio.skills.join(", "));	
+ // 	$("#skills").append(formattedHTMLskills);
+ // } else {
+ // 	$("#header").append(HTMLskillsStart);
+ // 	$("#skills").append(HTMLskills.replace("%data%", "Add more skills!"));
+ // }
+
+ // Answer from Udacity 
+  if (bio.skills.length > 0 ){
  	$("#header").append(HTMLskillsStart);
+ 	var formattedHTMLskills = HTMLskills.replace("%data%", bio.skills[0]);	
+ 	$("#skills").append(formattedHTMLskills);
+ 	formattedHTMLskills = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedHTMLskills);
+ 	formattedHTMLskills = HTMLskills.replace("%data%", bio.skills[2]);
  	$("#skills").append(formattedHTMLskills);
  } else {
  	$("#header").append(HTMLskillsStart);
  	$("#skills").append(HTMLskills.replace("%data%", "Add more skills!"));
  }
 
-
+//note: 
+// 1, remember the last ). forEach(function(){}). JS is all about ()[]{}
+// 2, the first jquery should be #workExperience. I used #header, which is wrong
+// 3, I lost one :lost, which coused some interesting format. 
+// 4, Weird: every time I added the last line, Description, the 2nd job disappear. Debug a long time. I finally found I wrote "HTMLWorDescription", insdead of "HTMLWorkDescription"....
+work.jobs.forEach(function(job){
+	$("#workExperience").append(HTMLworkStart);
+	var formatedworkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+	var	formatedworkTitle = HTMLworkTitle.replace("%data%", job.title);
+	var	formatedworkDates = HTMLworkDates.replace("%data%", job.date);
+	var	formatedworkLocation = HTMLworkLocation.replace("%data%", job.location);
+	var	formatedworkDescription = HTMLworkDescription.replace("%data%", job.description);
+	$(".work-entry:last").append(formatedworkEmployer);
+	$(".work-entry:last").append(formatedworkTitle);
+	$(".work-entry:last").append(formatedworkDates);
+	$(".work-entry:last").append(formatedworkLocation);
+	$(".work-entry:last").append(formatedworkDescription);
+})

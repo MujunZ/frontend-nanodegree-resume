@@ -2,13 +2,13 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
- var firstName = "MJ";
+ var firstName = "Mujun Zhang";
  var role = "Web Developer";
  // var awesomeThought = "I'm awesome!";
  // var funThought = awesomeThought.replace("awesome","fun");
 
  var formattedName = HTMLheaderName.replace("%data%",firstName);
- var formattedRole = HTMLheaderRole.replace("%data%",role)
+ var formattedRole = HTMLheaderRole.replace("%data%",role);
 
  // var skills = ["Web Developing","Video Editing","Graphic Design","Python"]
 
@@ -23,7 +23,7 @@ This is empty on purpose! Your code to build the resume will go here.
  // $("#main").append(bio.education["Undergraduate School"]);
 
  var bio = {
- 	"name": "MJ",
+ 	"name": "MJ Zhang",
  	"role": "role",
  	"contact info": {
  		"email": "mj@zhangmujun.com",
@@ -93,14 +93,14 @@ This is empty on purpose! Your code to build the resume will go here.
 	 	{
 	 		"title": "MAC-Lidar",
 	 		"date": 2016.11,
-	 		"discription": "lorem ipsom",
-	 		"images": "images/fry.jpg"
+ 			"description": "Lorem ipsum",
+	 		"image": "images/fry.jpg"
 	 	},
 	 	{
 	 		"title": "Portfolio page",
 	 		"date": 2016.11,
-	 		"discription": "lorem ipsom",
-	 		"images": "images/fry.jpg"
+ 			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis.",
+	 		"image": "images/fry.jpg"
 	 	}
  	]
  };
@@ -149,8 +149,8 @@ This is empty on purpose! Your code to build the resume will go here.
 // })
 
 function displayWork(){
-	work.jobs.forEach(function(job){
 	$("#workExperience").append(HTMLworkStart);
+	work.jobs.forEach(function(job){
 	var formatedworkEmployer = HTMLworkEmployer.replace("%data%", job.employer);
 	var	formatedworkTitle = HTMLworkTitle.replace("%data%", job.title);
 	var	formatedworkDates = HTMLworkDates.replace("%data%", job.date);
@@ -166,3 +166,12 @@ function displayWork(){
 
 displayWork();
 
+function inName(oldname){
+	var name = oldname.split(" ");
+	name[1]=name[1].toUpperCase();
+	name[0]=name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+	name = name.join(" ");
+	return name;
+}
+
+$("#main").append(internationalizeButton);

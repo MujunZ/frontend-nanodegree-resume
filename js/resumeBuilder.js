@@ -176,6 +176,9 @@ function inName(oldname){
 
 $("#main").append(internationalizeButton);
 
+// Note: 1, remember to check json;
+// 2, check class or ID;
+// 3, check function(). Don'f forget ().
 projects.display = function(){
 	$("#projects").append(HTMLprojectStart);
 	projects.projects.forEach(function(project){
@@ -190,4 +193,7 @@ projects.display = function(){
 	});
 }
 
+//play the function!
 projects.display();
+
+$("#mapDiv").append(googleMap);

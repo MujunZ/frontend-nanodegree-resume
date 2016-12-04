@@ -176,7 +176,7 @@ function inName(oldname){
 
 $("#main").append(internationalizeButton);
 
-// projects.display = function(){
+projects.display = function(){
 	$("#projects").append(HTMLprojectStart);
 	projects.projects.forEach(function(project){
 		var formatedHTMLprojectTitle = HTMLprojectTitle.replace("%data%",project.title);
@@ -187,5 +187,7 @@ $("#main").append(internationalizeButton);
 		$(".project-entry:last").append(formatedHTMLprojectDates);
 		$(".project-entry:last").append(formatedHTMLprojectDescription);
 		$(".project-entry:last").append(formatedHTMLprojectImage);
-	})
-// }
+	});
+}
+
+projects.display();

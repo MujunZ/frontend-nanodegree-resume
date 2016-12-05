@@ -29,7 +29,7 @@ This is empty on purpose! Your code to build the resume will go here.
  		"email": "mj@zhangmujun.com",
  		"url": "zhangmujun.com",
  		"github": "MujunZ",
- 		"location": "Ann Arbor"
+ 		"location": "Ann Arbor, MI"
  	},
  	"picture url": "images/fry.jpg",
  	"welcome msg": "Hello, ",
@@ -41,14 +41,14 @@ This is empty on purpose! Your code to build the resume will go here.
  	{
  		"title": "Instructional Designer",
  		"employer": "The SearchLite",
- 		"location": "Ann Arbor",
+ 		"location": "Ann Arbor, MI",
  		"date": 2016,
  		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis."
  	},
  	{
  		"title": "Operative Manager",
  		"employer": "Guokr",
- 		"location": "Beijing",
+ 		"location": "Beijing, China",
  		"date": 2014,
  		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis."
  	}
@@ -59,14 +59,14 @@ This is empty on purpose! Your code to build the resume will go here.
  		"schools":[
  			{
  			"name": "the University of Michigan",
- 			"location": "Ann Arbor",
+ 			"location": "Ann Arbor, MI",
  			"major": "Education",
  			"degree": "Master",
  			"date": 2015
  			},
  			{
  			"name": "Wuhan University",
- 			"location": "Wuhan",
+ 			"location": "Wuhan, China",
  			"major": "Psychology",
  			"degree": "BS",
  			"date": "2010"

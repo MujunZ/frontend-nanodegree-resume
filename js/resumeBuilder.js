@@ -25,7 +25,7 @@ This is empty on purpose! Your code to build the resume will go here.
  var bio = {
  	"name": "MJ Zhang",
  	"role": "role",
- 	"contact info": {
+ 	"contacts": {
  		"email": "mj@zhangmujun.com",
  		"url": "zhangmujun.com",
  		"github": "MujunZ",

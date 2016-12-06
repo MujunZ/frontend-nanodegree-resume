@@ -61,6 +61,10 @@ h5 {
 
 }
 
+h3 {
+  padding-left: 0;
+}
+
 
 .date-text {
   font-style: italic;
@@ -214,6 +218,10 @@ span {
 }
 
 @media only screen and (min-width: 750px) {
+    body {
+      max-width: 750px;
+      margin: auto;
+  }
   #skills-h3,
   .biopic {
     display: block;

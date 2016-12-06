@@ -2,20 +2,20 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
- var firstName = "Mujun Zhang";
- var role = "Web Developer";
+ // var firstName = "Mujun Zhang";
+ // var role = "Web Developer";
  // var awesomeThought = "I'm awesome!";
  // var funThought = awesomeThought.replace("awesome","fun");
 
- var formattedName = HTMLheaderName.replace("%data%",firstName);
- var formattedRole = HTMLheaderRole.replace("%data%",role);
+ // var formattedName = HTMLheaderName.replace("%data%",firstName);
+ // var formattedRole = HTMLheaderRole.replace("%data%",role);
 
  // var skills = ["Web Developing","Video Editing","Graphic Design","Python"]
 
  // $("#main").append(skills.length);
 
- $("#header").prepend(formattedRole);
- $("#header").prepend(formattedName);
+ // $("#header").prepend(formattedRole);
+ // $("#header").prepend(formattedName);
 
  // bio.work.city = "Ann Arbor";
  // bio.education["Undergraduate School"] = "Wuhan University";
@@ -24,18 +24,39 @@ This is empty on purpose! Your code to build the resume will go here.
 
  var bio = {
  	"name": "MJ Zhang",
- 	"role": "role",
+ 	"role": "Web Developer",
  	"contacts": {
+ 		"mobile": "314 159 2653",
  		"email": "mj@zhangmujun.com",
  		"url": "zhangmujun.com",
  		"github": "MujunZ",
  		"location": "Ann Arbor, MI"
  	},
- 	"picture url": "images/fry.jpg",
- 	"welcome msg": "Hello, ",
+ 	"biopic": "images/fry.jpg",
+ 	"welcomeMessage": "Hello!",
  	"skills": ["Web Developing","Video Editing","Graphic Design","Python"]
  };
 
+ var formattedName = HTMLheaderName.replace("%data%",bio.name);
+ var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+ // var formattedHTMLcontactGeneric = HTMLcontactGeneric.replace("%data%","Contact");
+ var formattedHTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+ var formattedHTMLemail = HTMLemail.replace("%data%", bio.contacts.email);
+ var formattedHTMLgithub = HTMLgithub.replace("%data%", bio.contacts.github);
+ var formattedHTMLlocation = HTMLgithub.replace("%data%", bio.contacts.location);
+ var formattedHTMLbioPic = HTMLbioPic.replace("%data%", bio.biopic);
+ var formattedHTMLwelcomeMsg= HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+ $("#header").prepend(formattedRole);
+ $("#header").prepend(formattedName);
+ // $("#header").prepend(formattedHTMLcontactGeneric);
+ $("#topContacts").prepend(formattedHTMLmobile);
+ $("#topContacts").prepend(formattedHTMLemail);
+ $("#topContacts").prepend(formattedHTMLgithub);
+ $("#topContacts").prepend(formattedHTMLlocation);
+ $("#topContacts").after(formattedHTMLbioPic);
+ $("#topContacts").after(formattedHTMLwelcomeMsg);
+
+// Work Information
  var work = {
  	"jobs": [
  	{
@@ -55,6 +76,7 @@ This is empty on purpose! Your code to build the resume will go here.
  	]
  };
 
+// Education Information
  var education = {
  		"schools":[
  			{
@@ -88,6 +110,29 @@ This is empty on purpose! Your code to build the resume will go here.
  		]
  	};
 
+// Education Information Display
+$("#education").append(HTMLschoolStart);
+education.schools.forEach(function(school){
+	 var formattedHTMLschoolName = HTMLschoolName.replace("%data%",school.name);
+	 var formattedHTMLschoolMajor = HTMLschoolMajor.replace("%data%",school.major);
+	 var formattedHTMLschoolDegree = HTMLschoolDegree.replace("%data%",school.degree);
+	 var formattedHTMLschoolLocation = HTMLschoolLocation.replace("%data%",school.location);
+	 var formattedHTMLworkDates = HTMLworkDates.replace("%data%",school.date);
+	 $(".education-entry").append(formattedHTMLschoolName);
+	 $(".education-entry").append(formattedHTMLworkDates);
+	 $(".education-entry").append(formattedHTMLschoolMajor);
+	 $(".education-entry").append(formattedHTMLschoolDegree);
+	 $(".education-entry").append(formattedHTMLschoolLocation);
+})
+
+// Online Education Information Display
+$(".education-entry").append(HTMLonlineClasses);
+education.onlineCourses.forEach(function(course){
+	var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%",course.title);
+	$(".education-entry").append(formattedHTMLonlineTitle);
+})
+
+// Project Information
  var projects = {
  	"projects": [
 	 	{
@@ -105,6 +150,7 @@ This is empty on purpose! Your code to build the resume will go here.
  	]
  };
 
+// Skills Information Display
 // This is MJ's first version
  // if (bio.skills.length > 0 ){
  // 	$("#header").append(HTMLskillsStart);
@@ -129,6 +175,7 @@ This is empty on purpose! Your code to build the resume will go here.
  	$("#skills").append(HTMLskills.replace("%data%", "Add more skills!"));
  }
 
+// Work Experience
 //note: 
 // 1, remember the last ). forEach(function(){}). JS is all about ()[]{}
 // 2, the first jquery should be #workExperience. I used #header, which is wrong
@@ -147,7 +194,6 @@ This is empty on purpose! Your code to build the resume will go here.
 // 	$(".work-entry:last").append(formatedworkLocation);
 // 	$(".work-entry:last").append(formatedworkDescription);
 // })
-
 function displayWork(){
 	$("#workExperience").append(HTMLworkStart);
 	work.jobs.forEach(function(job){
@@ -163,9 +209,10 @@ function displayWork(){
 	$(".work-entry:last").append(formatedworkDescription);
 	})
 }
-
 displayWork();
 
+
+// internationalizeButton
 function inName(oldname){
 	var name = oldname.split(" ");
 	name[1]=name[1].toUpperCase();
@@ -176,6 +223,7 @@ function inName(oldname){
 
 $("#main").append(internationalizeButton);
 
+// Project Information Display
 // Note: 1, remember to check json;
 // 2, check class or ID;
 // 3, check function(). Don'f forget ().
@@ -192,8 +240,8 @@ projects.display = function(){
 		$(".project-entry:last").append(formatedHTMLprojectImage);
 	});
 }
-
 //play the function!
 projects.display();
 
+// Google Map
 $("#mapDiv").append(googleMap);

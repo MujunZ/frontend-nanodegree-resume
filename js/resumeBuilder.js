@@ -123,14 +123,14 @@ education.schools.forEach(function(school){
 	 $(".education-entry").append(formattedHTMLschoolMajor);
 	 $(".education-entry").append(formattedHTMLschoolDegree);
 	 $(".education-entry").append(formattedHTMLschoolLocation);
-})
+});
 
 // Online Education Information Display
 $(".education-entry").append(HTMLonlineClasses);
 education.onlineCourses.forEach(function(course){
 	var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%",course.title);
 	$(".education-entry").append(formattedHTMLonlineTitle);
-})
+});
 
 // Project Information
  var projects = {
@@ -207,7 +207,7 @@ function displayWork(){
 	$(".work-entry:last").append(formatedworkDates);
 	$(".work-entry:last").append(formatedworkLocation);
 	$(".work-entry:last").append(formatedworkDescription);
-	})
+	});
 }
 displayWork();
 
@@ -239,7 +239,7 @@ projects.display = function(){
 		$(".project-entry:last").append(formatedHTMLprojectDescription);
 		$(".project-entry:last").append(formatedHTMLprojectImage);
 	});
-}
+};
 //play the function!
 projects.display();
 

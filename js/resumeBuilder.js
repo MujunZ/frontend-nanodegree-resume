@@ -67,13 +67,13 @@ var work = {
         "title": "Instructional Designer",
         "employer": "The SearchLite",
         "location": "Ann Arbor, MI",
-        "dates": 2016,
+        "dates": "2014 - present",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis."
     }, {
         "title": "Operative Manager",
         "employer": "Guokr",
         "location": "Beijing, China",
-        "dates": 2014,
+        "dates": "2010 - 2014",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis."
     }]
 };
@@ -120,14 +120,14 @@ work.display();
 var projects = {
     "projects": [{
         "title": "MAC-Lidar",
-        "dates": 2016.11,
+        "dates": "2016.11",
         "description": "Lorem ipsum",
-        "images": "images/fry.jpg"
+        "images": ["images/fry.jpg","images/fry.jpg"]
     }, {
         "title": "Portfolio page",
-        "dates": 2016.11,
+        "dates": "2016.11",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit felis purus, in congue leo ultricies vel. Aenean et finibus massa, ut dignissim ante. Vestibulum nunc nibh, vehicula ac lectus eget, mollis ornare nunc. Donec suscipit porttitor odio, porta gravida sem rutrum vel. Quisque eget lacus sed tellus faucibus viverra. Duis hendrerit est erat, id pretium massa interdum id. Fusce dictum ipsum id ipsum scelerisque, eget blandit sapien interdum. Mauris dictum lacus placerat convallis elementum. Sed feugiat in tortor nec aliquam. Cras a odio egestas, efficitur dui non, accumsan nulla. Duis at eros massa. Pellentesque eu dolor congue, commodo orci nec, tempus orci. Integer vitae lectus venenatis, egestas massa id, viverra turpis.",
-        "images": "images/fry.jpg"
+        "images": ["images/fry.jpg","images/fry.jpg"]
     }]
 };
 // Project Function
@@ -140,11 +140,13 @@ projects.display = function() {
         var formatedHTMLprojectTitle = HTMLprojectTitle.replace("%data%", project.title);
         var formatedHTMLprojectDates = HTMLprojectDates.replace("%data%", project.dates);
         var formatedHTMLprojectDescription = HTMLprojectDescription.replace("%data%", project.description);
-        var formatedHTMLprojectImage = HTMLprojectImage.replace("%data%", project.images);
         $(".project-entry:last").append(formatedHTMLprojectTitle);
         $(".project-entry:last").append(formatedHTMLprojectDates);
         $(".project-entry:last").append(formatedHTMLprojectDescription);
-        $(".project-entry:last").append(formatedHTMLprojectImage);
+        project.images.forEach(function(image){
+            var formatedHTMLprojectImage = HTMLprojectImage.replace("%data%", image);
+            $(".project-entry:last").append(formatedHTMLprojectImage);
+        });
     });
 };
 //play the function!
@@ -155,25 +157,27 @@ var education = {
     "schools": [{
         "name": "the University of Michigan",
         "location": "Ann Arbor, MI",
-        "majors": "Education",
+        "majors": ["Education", "Psychology"],
         "degree": "Master",
-        "dates": 2015
+        "dates": "2015",
+        "url": "http://umich.edu/"
     }, {
         "name": "Wuhan University",
         "location": "Wuhan, China",
-        "majors": "Psychology",
+        "majors": ["Psychology", "Education"],
         "degree": "BS",
-        "dates": "2010"
+        "dates": "2010",
+        "url": "http://en.whu.edu.cn/"
     }],
     "onlineCourses": [{
         "title": "Front End Developer",
-        "schools": "Udacity",
-        "dates": 2016,
+        "school": "Udacity",
+        "dates": "2016",
         "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
     }, {
         "title": "Front End Developer Path",
-        "schools": "Lynda",
-        "dates": 2016,
+        "school": "Lynda",
+        "dates": "2016",
         "url": "https://www.lynda.com"
     }]
 };
@@ -182,7 +186,7 @@ var education = {
 education.display = function() {
     $("#education").append(HTMLschoolStart);
     education.schools.forEach(function(school) {
-        var formattedHTMLschoolName = HTMLschoolName.replace("%data%", school.name);
+        var formattedHTMLschoolName = HTMLschoolName.replace("%data%", school.name).replace("#",school.url);
         var formattedHTMLschoolMajor = HTMLschoolMajor.replace("%data%", school.majors);
         var formattedHTMLschoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
         var formattedHTMLschoolLocation = HTMLschoolLocation.replace("%data%", school.location);
@@ -199,7 +203,7 @@ education.display = function() {
     education.onlineCourses.forEach(function(course) {
         var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%", course.title).replace("#", course.url);
         var formattedHTMLonlineDates = HTMLonlineDates.replace("%data%", course.dates);
-        var formattedHTMLonlineSchool = HTMLonlineSchool.replace("%data%", course.schools);
+        var formattedHTMLonlineSchool = HTMLonlineSchool.replace("%data%", course.school);
         var formattedHTMLonlineURL = HTMLonlineURL.replace("#", course.url).replace("%data%", course.url);
         $(".education-entry").append(formattedHTMLonlineTitle);
         $(".education-entry").append(formattedHTMLonlineDates);
